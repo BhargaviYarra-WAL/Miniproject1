@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Shopping Cart Application</title>
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+    <script src="jquery.js"></script>
+    <script src="bootstrap/js/bootstrap.js"></script>
+    <style>
+        body {
+            background: url(bg.jpg)
+        }
+
+        #card {
+            width: 16rem;
+            border: 2px solid black;
+            float: left;
+            border-radius: 5px;
+        }
+
+        img {
+            height: 200px;
+        }
+
+        h1 {
+            text-shadow: 2px 2px;
+            color: blueviolet;
+            font-weight: bold;
+        }
+
+        article {
+            font-style: oblique;
+            font-weight: bold;
+        }
+
+        @media (max-width:599px) {
+
+            #card {
+                width: 80%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h1 class="text-center mt-3">Shopping Cart Application</h1>
+    <div class="container-fluid">
+        <div id="card" class="card ml-5 mt-3 ">
+            <img class="card-img-top " src="t1.jpg" alt="card img" />
+            <div class="card-body">
+                <article class="card-title text-center" id="name1">Spykar Tshirt</article>
+                <div id="price1" class="text-center">Rs.230</div>
+                <div class="text-center">
+                    <button class="btn btn-primary rounded-pill " id="a" onclick="addtocart1()">Add to cart</button>
+                </div>
+            </div>
+        </div>
+        <div id="card" class="card ml-5 mt-3">
+            <img class="card-img-top" src="b1.jpg" alt="card img" />
+            <div class="card-body">
+                <article class="card-title text-center " id="name2">Louis Philippe Belt</article>
+                <div id="price2" class="text-center">Rs.1200</div>
+                <div class="text-center">
+                    <button class="btn btn-primary rounded-pill" id="b" onclick="addtocart2()">Add to cart</button>
+                </div>
+            </div>
+        </div>
+        <div id="card" class="card ml-5 mt-3">
+            <img class="card-img-top" src="s1.jpg" alt="card img" />
+            <div class="card-body">
+                <article class="card-title text-center" id="name3">Nike Shoe</article>
+                <div id="price3" class="text-center">Rs.1780</div>
+                <div class="text-center">
+                    <button class="btn btn-primary rounded-pill" id="c" onclick="addtocart3()">Add to cart</button>
+                </div>
+            </div>
+        </div>
+        <div id="card" class="card ml-5 mt-3">
+            <img class="card-img-top" src="h1.jpg" alt="card img" />
+            <div class="card-body">
+                <article class="card-title text-center" id="name4">Lino Perros Handbag</article>
+                <div id="price4" class="text-center">Rs.760</div>
+                <div class="text-center">
+                    <button class="btn btn-primary rounded-pill" id="d" onclick="addtocart4()">Add to cart</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div id="card" class="card ml-5 mt-3 mb-2">
+            <img class="card-img-top " src="a1.jpg" alt="card img" />
+            <div class="card-body">
+                <article class="card-title text-center" id="name5">Mamaearth Alovera</article>
+                <div id="price5" class="text-center">Rs.300</div>
+                <div class="text-center">
+                    <button class="btn btn-primary rounded-pill" id="e" onclick="addtocart5()">Add to cart</button>
+                </div>
+            </div>
+        </div>
+        <div id="card" class="card ml-5 mt-3 mb-2">
+            <img class="card-img-top" src="n1.jpg" alt="card img" />
+            <div class="card-body">
+                <article class="card-title text-center " id="name6">Alchemist Novel</article>
+                <div id="price6" class="text-center">Rs.249</div>
+                <div class="text-center">
+                    <button class="btn btn-primary rounded-pill" id="f" onclick="addtocart6()">Add to cart</button>
+                </div>
+            </div>
+        </div>
+        <div id="card" class="card ml-5 mt-3 mb-2">
+            <img class="card-img-top" src="w1.jpg" alt="card img" />
+            <div class="card-body">
+                <article class="card-title text-center" id="name7">Boat Smartwatch</article>
+                <div id="price7" class="text-center">Rs.2500</div>
+                <div class="text-center">
+                    <button class="btn btn-primary rounded-pill" id="g" onclick="addtocart7()">Add to cart</button>
+                </div>
+            </div>
+        </div>
+        <div id="card" class="card ml-5 mt-3 mb-2">
+            <img class="card-img-top" src="r1.jpg" alt="card img" />
+            <div class="card-body">
+                <article class="card-title text-center" id="name8">Redmi 9a Mobile</article>
+                <div id="price8" class="text-center">Rs.7890</div>
+                <div class="text-center">
+                    <button class="btn btn-primary rounded-pill" id="h" onclick="addtocart8()">Add to cart</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        let products_cart = [];
+        function addtocart1() {
+            document.querySelector("#a").textContent = "remove from cart";
+            let details1 = {
+                prodname: document.querySelector("#name1").textContent,
+                prodprice: document.querySelector("#price1").textContent
+            }
+            products_cart.push(details1);
+            localStorage.setItem('products_cart', JSON.stringify(products_cart));
+        }
+
+
+        function addtocart2() {
+            document.querySelector("#b").textContent = "remove from cart";
+            let details2 = {
+                prodname: document.querySelector("#name2").textContent,
+                prodprice: document.querySelector("#price2").textContent
+            }
+            products_cart.push(details2);
+            localStorage.setItem('products_cart', JSON.stringify(products_cart));
+        }
+
+        function addtocart3() {
+            document.querySelector("#c").textContent = "remove from cart";
+            let details3 = {
+                prodname: document.querySelector("#name3").textContent,
+                prodprice: document.querySelector("#price3").textContent
+            }
+            products_cart.push(details3);
+            localStorage.setItem('products_cart', JSON.stringify(products_cart));
+        }
+        function addtocart4() {
+            document.querySelector("#d").textContent = "remove from cart";
+            let details4 = {
+                prodname: document.querySelector("#name4").textContent,
+                prodprice: document.querySelector("#price4").textContent
+            }
+            products_cart.push(details4);
+            localStorage.setItem('products_cart', JSON.stringify(products_cart));
+        }
+        function addtocart5() {
+            document.querySelector("#e").textContent = "remove from cart";
+            let details5 = {
+                prodname: document.querySelector("#name5").textContent,
+                prodprice: document.querySelector("#price5").textContent
+            }
+            products_cart.push(details5);
+            localStorage.setItem('products_cart', JSON.stringify(products_cart));
+        }
+        function addtocart6() {
+            document.querySelector("#f").textContent = "remove from cart";
+            let details6 = {
+                prodname: document.querySelector("#name6").textContent,
+                prodprice: document.querySelector("#price6").textContent
+            }
+            products_cart.push(details6);
+            localStorage.setItem('products_cart', JSON.stringify(products_cart));
+        }
+        function addtocart7() {
+            document.querySelector("#g").textContent = "remove from cart";
+            let details7 = {
+                prodname: document.querySelector("#name7").textContent,
+                prodprice: document.querySelector("#price7").textContent
+            }
+            products_cart.push(details7);
+            localStorage.setItem('products_cart', JSON.stringify(products_cart));
+        }
+        function addtocart8() {
+            document.querySelector("#h").textContent = "remove from cart";
+            let details8 = {
+                prodname: document.querySelector("#name8").textContent,
+                prodprice: document.querySelector("#price8").textContent
+            }
+            products_cart.push(details8);
+            localStorage.setItem('products_cart', JSON.stringify(products_cart));
+        }
+    </script>
+
+
+</body>
+
+</html>
